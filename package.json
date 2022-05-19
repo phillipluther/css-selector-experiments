@@ -1,0 +1,28 @@
+{
+  "name": "css-selector-experiments",
+  "version": "0.1.0",
+  "description": "CSS selector experiments",
+  "source": "src/index.html",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillipluther/css-selector-experiments.git"
+  },
+  "keywords": [],
+  "author": "Phillip Luther <dev@phillipluther.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phillipluther/css-selector-experiments/issues"
+  },
+  "homepage": "https://github.com/phillipluther/css-selector-experiments#readme",
+  "devDependencies": {
+    "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "nanoid": "^3.3.4"
+  }
+}

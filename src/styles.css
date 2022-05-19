@@ -1,0 +1,18 @@
+html,
+body {
+  background: #090909;
+}
+
+body {
+  font-family: sans-serif;
+  color: #c9c9c9;
+  font-size: 1.25rem;
+}
+
+#nodeWrapper {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CSS Selector Experiments</title>
+
+    <meta name="description" content="CSS Selector Experiments" />
+    <meta name="keywords" content="css, selector, performance, optimization" />
+
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>CSS Selector Experiments</h1>
+    <p>10k nodes on a page; testing various selector/specificity impacts</p>
+
+    <p id="results_byId"></p>
+
+    <hr />
+
+    <div id="nodeWrapper"></div>
+
+    <noscript>Gotta JavaScript</noscript>
+
+    <script type="module">
+      import makeNodes from './make-nodes.js';
+      import testIdSelection from './test-id-selection.js';
+      import testClassSelection from './test-class-selection.js';
+      import testNestedAttribute from './test-nested-attribute.js';
+
+      console.log(testIdSelection(makeNodes()));
+      console.log(testClassSelection(makeNodes()));
+      console.log(testNestedAttribute(makeNodes()));
+    </script>
+  </body>
+</html>
