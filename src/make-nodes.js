@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-export default function () {
+export default function (nodeCount = 10000) {
   const nodeWrapper = window.document.getElementById('nodeWrapper');
   const generatingNodesHandle = 'Generating nodes ...';
   const ids = [];
@@ -9,13 +9,14 @@ export default function () {
 
   console.time(generatingNodesHandle);
 
-  for (let i = 0, n = 1000; i < n; i++) {
+  for (let i = 0; i < nodeCount; i++) {
     const node = document.createElement('div');
     const id = `d-${nanoid()}`;
 
     node.id = id;
     node.innerText = id;
-    node.className = id;
+    node.classList.add(id);
+    node.classList.add('top-level');
 
     ids.push(id);
 
@@ -24,14 +25,16 @@ export default function () {
 
     p.id = pId;
     p.innerText = pId;
-    p.className = pId;
+    p.classList.add(pId);
+    p.classList.add('mid-level');
 
     const span = document.createElement('span');
     const spanId = `${id}-span`;
 
     span.id = spanId;
     span.innerText = spanId;
-    span.className = spanId;
+    span.classList.add(spanId);
+    span.classList.add('bottom-level');
     span.setAttribute('data-id', spanId);
 
     p.appendChild(span);

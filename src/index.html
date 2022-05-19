@@ -13,25 +13,27 @@
   </head>
   <body>
     <h1>CSS Selector Experiments</h1>
-    <p>10k nodes on a page; testing various selector/specificity impacts</p>
-
-    <p id="results_byId"></p>
+    <p>Testing various selector/specificity impacts</p>
 
     <hr />
 
+    <div id="results"></div>
     <div id="nodeWrapper"></div>
 
     <noscript>Gotta JavaScript</noscript>
 
     <script type="module">
       import makeNodes from './make-nodes.js';
-      import testIdSelection from './test-id-selection.js';
-      import testClassSelection from './test-class-selection.js';
-      import testNestedAttribute from './test-nested-attribute.js';
+      import testSelector from './test-selector';
 
-      console.log(testIdSelection(makeNodes()));
-      console.log(testClassSelection(makeNodes()));
-      console.log(testNestedAttribute(makeNodes()));
+      const ids = makeNodes();
+
+      testSelector('.mid-level .bottom-level');
+      testSelector('.mid-level span');
+      testSelector('p .bottom-level');
+      testSelector('p span');
+
+      testSelector('div + div');
     </script>
   </body>
 </html>
