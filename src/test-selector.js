@@ -1,17 +1,34 @@
-export default function (selector) {
+export default function (selector, runs = 3) {
   let timeStart;
   let timeEnd;
   let nodeList;
+  const times = [];
 
-  timeStart = new Date();
-  nodeList = document.querySelectorAll(selector);
-  timeEnd = new Date();
+  for (let n = 0; n < runs; n++) {
+    timeStart = new Date();
 
-  const results = document.getElementById('results');
-  const result = document.createElement('p');
+    for (let i = 0, n = 100; i < n; i++) {
+      nodeList = document.querySelectorAll(selector);
+    }
 
-  result.classList.add('result');
-  result.innerText = `"${selector}" found ${nodeList.length} nodes in ${timeEnd - timeStart}ms`;
+    timeEnd = new Date();
+    times.push(timeEnd - timeStart);
+  }
 
-  results.appendChild(result);
+  const resultsEl = document.getElementById('results');
+  const resultEl = document.createElement('p');
+
+  let sum = 0;
+
+  times.forEach((x) => {
+    sum += x;
+  });
+
+  const average = (sum / times.length).toFixed(2);
+  resultEl.classList.add('result');
+  resultEl.innerHTML = `<pre class="selector">"${selector}"</pre>Found ${
+    nodeList.length
+  } nodes: ran ${runs} times, average ${average}ms (${times.join(', ')})`;
+
+  resultsEl.appendChild(resultEl);
 }

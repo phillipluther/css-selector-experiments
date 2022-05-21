@@ -18,7 +18,10 @@
     <hr />
 
     <div id="results"></div>
-    <div id="nodeWrapper"></div>
+
+    <div id="outermost" class="outermost">
+      <div id="nodeWrapper" class="node-wrapper"></div>
+    </div>
 
     <noscript>Gotta JavaScript</noscript>
 
@@ -28,12 +31,15 @@
 
       const ids = makeNodes();
 
-      testSelector('.mid-level .bottom-level');
-      testSelector('.mid-level span');
-      testSelector('p .bottom-level');
-      testSelector('p span');
+      testSelector('div div div p span');
+      testSelector('.outermost .node-wrapper .level-one .level-two .level-three');
 
-      testSelector('div + div');
+      testSelector('div div div p .level-three');
+
+      testSelector('.level-two');
+      testSelector('p');
+
+      testSelector(`#${ids[9]}`);
     </script>
   </body>
 </html>

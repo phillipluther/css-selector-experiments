@@ -10,9 +10,17 @@ body {
 }
 
 #nodeWrapper {
-  width: 1px;
   height: 1px;
+  width: 1px;
   position: absolute;
   overflow: hidden;
   z-index: -1;
+}
+
+.result {
+  margin: 16px 0 32px;
+}
+
+.selector {
+  display: block;
 }

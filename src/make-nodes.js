@@ -16,7 +16,7 @@ export default function (nodeCount = 10000) {
     node.id = id;
     node.innerText = id;
     node.classList.add(id);
-    node.classList.add('top-level');
+    node.classList.add('level-one');
 
     ids.push(id);
 
@@ -26,7 +26,7 @@ export default function (nodeCount = 10000) {
     p.id = pId;
     p.innerText = pId;
     p.classList.add(pId);
-    p.classList.add('mid-level');
+    p.classList.add('level-two');
 
     const span = document.createElement('span');
     const spanId = `${id}-span`;
@@ -34,7 +34,7 @@ export default function (nodeCount = 10000) {
     span.id = spanId;
     span.innerText = spanId;
     span.classList.add(spanId);
-    span.classList.add('bottom-level');
+    span.classList.add('level-three');
     span.setAttribute('data-id', spanId);
 
     p.appendChild(span);
